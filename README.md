@@ -1,3 +1,13 @@
+### Steps to run
+
+1. You will need to add the **Dockerfile** to the web API in the backend folder.
+1. And add the **docker-compose.yml** file to the root folder.
+
+Along with the necessary Docker commands for building an image and running Docker compose as well.
+
+Check out the Learn module to find out all about [Building your first microservice in .NET](https://docs.microsoft.com/learn/modules/dotnet-microservices).
+
+
 ## /backend/Dockerfile explanation
 ```yaml
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
@@ -41,14 +51,6 @@ docker build -t pizzabackend .
 docker run -it --rm -p 5200:80 --name pizzabackendcontainer pizzabackend
 ```
 
-
-## Stop & remove running containers
-```
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-```
-[Remove-all-stopped-containers](https://docs.docker.com/engine/reference/commandline/rm/#remove-all-stopped-containers)
-
 ## /mslearn-dotnetmicroserices/docker-compose.yaml explanation
 
 1. First it creates the frontend website, naming it pizza frontend. It tells Docker to build it, pointing to the Dockerfile found in the frontend folder. Then it sets an environment variable for the website: backendUrl=http://backend. Finally it opens a port and declares it depends on the backend service.
@@ -76,13 +78,10 @@ Microservice applications are composed of small, independently versioned, and sc
 
 In order to run the code in this repo as a microservice, please complete the [Build your first microservice in .NET](https://docs.microsoft.com/learn/modules/dotnet-microservices).
 
-### Steps to run
-
-1. You will need to add the **Dockerfile** to the web API in the backend folder.
-1. And add the **docker-compose.yml** file to the root folder.
-
-Along with the necessary Docker commands for building an image and running Docker compose as well.
-
-Check out the Learn module to find out all about [Building your first microservice in .NET](https://docs.microsoft.com/learn/modules/dotnet-microservices).
-
+## Stop & remove running containers
+```
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```
+[Remove-all-stopped-containers](https://docs.docker.com/engine/reference/commandline/rm/#remove-all-stopped-containers)
 
